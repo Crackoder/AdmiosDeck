@@ -25,3 +25,7 @@ end
 When (/^I click the link "([^\"]*)"$/) do |link|
   click_link(link)
 end
+
+Then(/^I should not see "(.*?)"$/) do |text|
+  page.should_not have_content(text)
+end
