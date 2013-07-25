@@ -1,6 +1,10 @@
 AdmiosDeck::Application.routes.draw do
+  
   root  'static_pages#home'
+  post "user_destroy" => "users#destroy", :as => "user_destroy"
+  get "delete_account" => "users#delete", :as => "delete_account"
   get "dashboard" => "static_pages#dashboard", :as => "dashboard"
+  get "manage_user" => "users#manage_user", :as => "manage_user"
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"

@@ -1,0 +1,12 @@
+<%= form_tag({:controller => 'users', :action => 'destroy'}) do %>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag "Current password:" %>
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions"><%= submit_tag "Delete" %></div>
+<% end %>
