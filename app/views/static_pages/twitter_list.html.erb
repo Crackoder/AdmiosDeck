@@ -10,15 +10,25 @@
 
   <tbody>
     <% @twitter_accounts.each do |twitter_account| %>
-      <tr>
-        <td><%= twitter_account.username %></td>
-        <td><%= link_to 'Edit', edit_twitter_account_path(twitter_account) %></td>
-        <td><%= link_to 'Delete', twitter_account, method: :delete%></td>
-      </tr>
+    <tr>
+      <td class="separate"><%= twitter_account.username %></td>
+      <td>
+        <div class="btn-group">
+          <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+            Actions
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Edit', edit_twitter_account_path(twitter_account) %></li>
+            <li><%= link_to 'Delete', twitter_account, method: :delete%></li>
+          </ul>
+        </div>
+      </td>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Twitter account', new_twitter_account_path %>
+<button class="btn"><%= link_to 'New Twitter account', new_twitter_account_path %></button>
