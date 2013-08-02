@@ -30,6 +30,9 @@ gem 'bcrypt-ruby', '3.0.1'
 
 gem 'sorcery'
 gem 'protected_attributes' 
+gem 'pusher'
+gem 'tweetstream'
+gem 'twitter'
 
 group :test do
   gem "rspec-rails", ">= 2.0.1"

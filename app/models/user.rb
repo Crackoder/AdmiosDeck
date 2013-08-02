@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :twitter_accounts
-  
+  has_many :twitter_accounts, :dependent => :destroy
+
   authenticates_with_sorcery!
 
   attr_accessible :username, :password, :password_confirmation

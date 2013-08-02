@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 	  if !User.authenticate(current_user.username, params[:password]).nil?
 	    current_user.destroy
         redirect_to login_url, :alert => "Your account has been deleted."
+      else
+      	redirect_to delete_account_path, :alert => "Incorrect password."
   	  end
     end
 
