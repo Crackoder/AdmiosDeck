@@ -34,6 +34,10 @@ gem 'pusher'
 gem 'tweetstream'
 gem 'twitter'
 
+gem "therubyracer"
+gem "less-rails"
+gem 'twitter-bootstrap-rails'
+
 group :test do
   gem "rspec-rails", ">= 2.0.1"
   gem 'cucumber-rails'

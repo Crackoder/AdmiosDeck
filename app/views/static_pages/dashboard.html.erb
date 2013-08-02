@@ -4,21 +4,20 @@
     <title>Pusher Test</title>
     <script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-    window.onload = function()
-    {
+    $(document).ready(function(){
       Pusher.log = function(message) {
         if (window.console && window.console.log) {
           window.console.log(message);
         }
       };
       if(typeof pusher === 'undefined'){
-        var pusher = new Pusher('98d1cd189b6bdb479506');
+        pusher = new Pusher('98d1cd189b6bdb479506');
         var channel = pusher.subscribe('<%= current_user.username %>');
         channel.bind('new_tweet', function(data) {
-          $("#feed").prepend("<div id=\"item\">" + data.message + "</div>");
+          $("#feed").prepend("<div id=\"item\" class=\"well well-large\">" + data.message + "</div>");
         });
       };
-    }; 
+    }); 
     </script>
   </head>
   <body>

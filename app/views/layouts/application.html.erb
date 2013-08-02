@@ -7,16 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<% if current_user %>
-	  <%= link_to "Dashboard", dashboard_path %>
-	  Logged in as <%= current_user.username %>.
-	  <%= link_to "Log out", logout_path %>
-	  <%= link_to "Manage Account", manage_user_path %>
-	<% else %>
-	  <%= link_to "Sign up", signup_path %> or
-	  <%= link_to "log in", login_path %>.
-	<% end %>
-<%= yield %>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">      
+        <% if current_user %>
+          <ul class="nav navbar-nav">
+            <li class="item-1"><%= link_to "Dashboard", dashboard_path %></li>
+            <li class="item-2"><%= link_to "Manage Account", manage_user_path %></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li><%= link_to "Log out", logout_path %></li>
+          </ul>
+          <p class="navbar-text pull-right">Logged in as <%= current_user.username %>.</p>
+        <% else %>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Sign up", signup_path %></li>
+            <li><%= link_to "log in", login_path %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

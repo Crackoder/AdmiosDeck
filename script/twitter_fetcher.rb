@@ -8,7 +8,7 @@ while true
     TweetStream::Client.new.follow(*id_list) do |status|
       name = id_map[status.user.id]
       puts "tweet for " + name
-      Pusher[name].trigger("new_tweet", { message: "@#{status.user.screen_name} said: #{status.text}"})
+      Pusher[name].trigger("new_tweet", { message: "<strong>@#{status.user.screen_name}:</strong><br/>#{status.text}"})
     end
   }
   while TwitterAccount.find(:all).count() == accounts_count
