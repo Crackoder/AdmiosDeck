@@ -14,7 +14,8 @@ Feature: Manage Sessions
   Scenario: User Logout
     Given I log in with valid credentials
     When I click the link "Log out"
-    Then I should see "Sign up or log in"
+    Then I should see "Sign up"
+    And I should see "log in"
 
   Scenario: Access Restrictions
   	Given I'm not loged in

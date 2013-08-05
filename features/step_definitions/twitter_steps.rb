@@ -1,9 +1,7 @@
-Given(/^I have Twitter user "(.*?)" with password "(.*?)" created$/) do |username, password|
-	step "I log in with valid credentials"
-    step "I click the link \"Manage Account\""
-    step "I click the link \"Your Twitter Accounts\""
-    step "I click the link \"New Twitter account\""
-    step "I fill in \"twitter_account_username\" with \"Tweet\""
-    step "I fill in \"twitter_account_password\" with \"123456\""
-    step "I click the button \"Create Twitter account\""
+Given(/^I have Twitter user "(.*?)" for User "(.*?)" created$/) do |twitter, user|
+    if TwitterAccount.find_by_username(twitter) == nil
+      t = TwitterAccount.create({:username => twitter })
+      t.user_id = User.find_by_username(user).id
+      t.save()
+    end
 end

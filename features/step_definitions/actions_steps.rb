@@ -29,3 +29,7 @@ end
 Then(/^I should not see "(.*?)"$/) do |text|
   page.should_not have_content(text)
 end
+
+When(/^I click on "(.*?)"$/) do |clickable|
+  find('a', :text => clickable).click
+end

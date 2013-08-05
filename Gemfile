@@ -43,6 +43,7 @@ group :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'webrat'
+  gem 'selenium-webdriver'
 end
 
 group :doc do
