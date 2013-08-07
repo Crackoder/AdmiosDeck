@@ -1,10 +1,5 @@
     <script type="text/javascript">
     $(document).ready(function(){
-      Pusher.log = function(message) {
-        if (window.console && window.console.log) {
-          window.console.log(message);
-        }
-      };
       if(typeof pusher === 'undefined'){
         pusher = new Pusher('98d1cd189b6bdb479506');
         var channel = pusher.subscribe('<%= current_user.username %>');
